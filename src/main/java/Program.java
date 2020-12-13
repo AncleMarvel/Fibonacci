@@ -5,7 +5,8 @@ public class Program {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter getting a given number in the Fibonacci sequence (preferably no more than 43) --> ");
-        int lengthSequence = scanner.nextInt();
+        System.out.print("Entered -> 11");
+        int lengthSequence = 11;
 
         Fibonacci fibo = new Fibonacci(lengthSequence);
 
