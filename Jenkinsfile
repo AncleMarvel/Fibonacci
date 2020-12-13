@@ -21,7 +21,7 @@ pipeline {
 		stage('Test') {
 			agent { 
 				docker { 
-					image 'alpine'
+					image 'maven'
 					args '-u=\"root\"'
 				}
 			}
