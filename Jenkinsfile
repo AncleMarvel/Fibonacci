@@ -44,6 +44,10 @@ pipeline {
 				success {
 					echo "Application testing successfully completed"
 				}
+				
+				failure {
+					echo "Oooppss!!! Tests failed!"
+				}
 			}// post
 		}// stage Test
 	}// stages
