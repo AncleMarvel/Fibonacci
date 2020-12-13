@@ -32,7 +32,7 @@ pipeline {
 
 			post {
 				always {
-					junit 'surefire-reports/*.xml'
+					junit allowEmptyResults: true, 'surefire-reports/*.xml'
 				}
 				success {
 					echo "Application testing successfully completed"
