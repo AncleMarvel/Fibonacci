@@ -28,6 +28,13 @@ pipeline {
 		
 			steps {
 				sh 'java -jar Fibonacci.jar'
+				
+				script {
+                    def testResults = findFiles(glob: 'target/surefire-reports/TEST-FibonacciTest.xml')
+                    for(xml in testResults) {
+                        touch xml.getPath()
+                    }
+                }
 			}
 
 			post {
