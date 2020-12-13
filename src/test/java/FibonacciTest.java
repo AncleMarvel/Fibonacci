@@ -29,9 +29,10 @@ public class FibonacciTest {
         this.fibonacci = null;
     }
 
-    @org.junit.Test
+    @org.junit.Test(expected = ArithmeticException.class)
     public void getN() {
-        assertEquals(89, this.fibonacci.getN(11));
+        assertEquals(89, this.fibonacci.getN(-11));
+
     }
 
     @org.junit.Test

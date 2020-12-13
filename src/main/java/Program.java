@@ -6,13 +6,24 @@ public class Program {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter getting a given number in the Fibonacci sequence (preferably no more than 43) --> ");
         int lengthSequence = scanner.nextInt();
+
         Fibonacci fibo = new Fibonacci(lengthSequence);
-        System.out.println("Please wait...");
+
+
+        try {
+            System.out.print("Please wait...");
+            Thread.sleep(3000);
+            int[] sequence = fibo.generateSequence();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+
         int[] sequence = fibo.generateSequence();
         fibo.showSequence(sequence);
-        System.out.print("-----------------------------------------------------------------------------------");
-        int n = -11;
-        fibo.getN(n);
-        System.out.print(fibo.getN(n));
+        System.out.println("\n-----------------------------------------------------------------------------------");
+//        int n = 11;
+//        fibo.getN(n);
+//        System.out.print(fibo.getN(n));Manifest-Version: 1.0
+//Main-Class: Program
     }
 }
