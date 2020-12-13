@@ -1,4 +1,4 @@
-pipline {
+pipeline {
 	options {timestamps()}
 	
 	agent none
