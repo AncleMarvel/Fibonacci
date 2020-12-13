@@ -3,7 +3,7 @@ pipline {
 	
 	agent none
 	stages {
-		stage('Check scm’) {
+		stage('Check scm') {
 			agent any
 			
 			steps {
