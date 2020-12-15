@@ -11,9 +11,10 @@ pipeline {
 		}
 		
 		stage('Build') {
+			agent any
 			steps {
+				
 				echo "Building Fibonacci ${BUILD_NUMBER}"
-				echo "${cd}"
 				sh "mvn clean package"
 				echo "Build completed"
 			}
