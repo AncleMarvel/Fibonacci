@@ -39,8 +39,15 @@ pipeline {
 			steps {
 				
 				//sh 'mvn test'
-				docker.build("fibonacci:1.0")
+				sh 'echo cd'
 				
+			}
+		}
+		stage('Docker build') {
+			agent any
+			
+			steps {
+				sh 'docker build -t fibonacci .'
 			}
 
 			post {
