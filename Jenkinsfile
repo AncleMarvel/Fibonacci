@@ -1,6 +1,13 @@
 pipeline {
+	//environment { 
+	//	registry = "anclemarvel/fibonacci" 
+	//	registryCredential = 'dockhub' 
+	//	dockerImage = 'fibonacci' 
+	//}
 	agent none
 	options {timestamps()}
+	
+	
 	
 	stages {
 		stage('Check scm') {
@@ -45,10 +52,6 @@ pipeline {
 		}
 		stage('Docker build') {
 			agent any
-			
-			steps {
-				sh 'docker build -t fibonacci .'
-			}
 
 			post {
 				//always {
@@ -56,7 +59,10 @@ pipeline {
 				//}
 				success {
 					echo "Application testing successfully completed"
-				//	sh 'docker build -t result .'
+					sh '''docker build -t anclemarvel/fibonacci .
+					docker login --username=anclemarvel --password=Franklin91upetiv
+					docker push anclemarvel/fibonacci:latest
+					'''
 				}
 				
 				failure {
