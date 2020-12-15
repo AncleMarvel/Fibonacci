@@ -47,8 +47,7 @@ pipeline {
 				}
 				success {
 					echo "Application testing successfully completed"
-					sh 'docker build -t target/Fibonacci-1.0.jar .'
-					sh 'docker run -d -p 8080:8080 target/Fibonacci-1.0.jar'
+					sh 'docker build -t result .'
 				}
 				
 				failure {
