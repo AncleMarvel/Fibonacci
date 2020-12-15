@@ -11,7 +11,13 @@ pipeline {
 		}
 		
 		stage('Build') {
-			agent any
+			agent { 
+				docker { 
+					image 'maven'
+					args '-u=\"root\"'
+				}
+			}
+			
 			steps {
 				
 				echo "Building Fibonacci ${BUILD_NUMBER}"
