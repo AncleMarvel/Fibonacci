@@ -13,7 +13,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				echo "Building Fibonacci ${BUILD_NUMBER}"
-				echo "%cd%"
+				echo "${cd}"
 				sh "mvn clean package"
 				echo "Build completed"
 			}
