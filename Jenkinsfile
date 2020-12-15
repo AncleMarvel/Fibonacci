@@ -29,7 +29,7 @@ pipeline {
 			steps {
 				
 				echo "Building Fibonacci ${BUILD_NUMBER}"
-				//sh "mvn clean package"
+				sh "mvn clean package"
 				echo "Build completed"
 			}
 		}
@@ -45,16 +45,16 @@ pipeline {
 		
 			steps {
 				
-				//sh 'mvn test'
-				sh 'echo cd'
+				sh 'mvn test'
+				//sh 'echo cd'
 				
 			}
 		}
 		stage('Docker build') {
 			agent any
 			steps {
-				//junit 'target/surefire-reports/TEST-FibonacciTest.xml'
-				sh "echo dc"
+				junit 'target/surefire-reports/TEST-FibonacciTest.xml'
+				//sh "echo dc"
 			}
 			post {
 				
