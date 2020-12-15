@@ -1,10 +1,8 @@
 pipeline {
 	options {timestamps()}
 	
-	agent none
 	stages {
 		stage('Check scm') {
-			agent any
 			
 			steps {
 				checkout scm
@@ -20,7 +18,8 @@ pipeline {
 		}
 	
 		stage('Test') {
-			agent { 
+				
+			steps { 
 				docker { 
 					image 'maven'
 					args '-u=\"root\"'
