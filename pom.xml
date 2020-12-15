@@ -6,7 +6,7 @@
 
     <groupId>mit31</groupId>
     <artifactId>Fibonacci</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <dependencies>
 
         <dependency>

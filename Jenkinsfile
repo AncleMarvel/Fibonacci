@@ -13,7 +13,8 @@ pipeline {
 		
 		stage('Build') {
 			steps {
-				echo "Building ...${BUILD_NUMBER}"
+				echo "Building Fibonacci ${BUILD_NUMBER}"
+				sh "mvn clean package"
 				echo "Build completed"
 			}
 		}
@@ -27,14 +28,8 @@ pipeline {
 			}
 		
 			steps {
-				sh 'java -jar Fibonacci.jar'
+				sh 'mvn test'
 				
-				script {
-                    def testResults = findFiles(glob: 'target/surefire-reports/TEST-FibonacciTest.xml')
-                    for(xml in testResults) {
-                        touch xml.getPath()
-                    }
-                }
 			}
 
 			post {
@@ -43,6 +38,8 @@ pipeline {
 				}
 				success {
 					echo "Application testing successfully completed"
+					sh 'docker build -t target/Fibonacci-1.0.jar .'
+					sh 'docker run -d -p 8080:8080 target/Fibonacci-1.0.jar'
 				}
 				
 				failure {

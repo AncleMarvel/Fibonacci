@@ -1,1 +1,0 @@
-java -jar Fibonacci.jar
