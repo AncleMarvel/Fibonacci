@@ -22,7 +22,7 @@ pipeline {
 			steps {
 				
 				echo "Building Fibonacci ${BUILD_NUMBER}"
-				sh "mvn clean package"
+				//sh "mvn clean package"
 				echo "Build completed"
 			}
 		}
@@ -37,16 +37,19 @@ pipeline {
 			}
 		
 			steps {
-				sh 'mvn test'
+				
+				//sh 'mvn test'
+				sh 'docker --help'
 				
 			}
 
 			post {
-				always {
-					junit 'target/surefire-reports/TEST-FibonacciTest.xml'
-				}
+				//always {
+				//	junit 'target/surefire-reports/TEST-FibonacciTest.xml'
+				//}
 				success {
 					echo "Application testing successfully completed"
+					sh 'docker --help'
 					sh 'docker build -t result .'
 				}
 				
