@@ -39,7 +39,7 @@ pipeline {
 			steps {
 				
 				//sh 'mvn test'
-				sh 'docker --help'
+				sh "echo cd"
 				
 			}
 
@@ -49,8 +49,8 @@ pipeline {
 				//}
 				success {
 					echo "Application testing successfully completed"
-					sh 'docker --help'
-					sh 'docker build -t result .'
+					docker.build("fibonacci:1.0")
+				//	sh 'docker build -t result .'
 				}
 				
 				failure {
