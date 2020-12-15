@@ -13,7 +13,8 @@ pipeline {
 		stage('Build') {
 			agent { 
 				docker { 
-					image 'maven'
+					image 'maven:3.6.3'
+					
 					args '-u=\"root\"'
 				}
 			}
@@ -30,7 +31,7 @@ pipeline {
 				
 			agent { 
 				docker { 
-					image 'maven'
+					image 'maven:3.6.3'
 					args '-u=\"root\"'
 				}
 			}
