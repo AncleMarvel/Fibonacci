@@ -52,11 +52,12 @@ pipeline {
 		}
 		stage('Docker build') {
 			agent any
-
+			steps {
+				//junit 'target/surefire-reports/TEST-FibonacciTest.xml'
+				sh "echo dc"
+			}
 			post {
-				//always {
-				//	junit 'target/surefire-reports/TEST-FibonacciTest.xml'
-				//}
+				
 				success {
 					echo "Application testing successfully completed"
 					sh '''docker build -t anclemarvel/fibonacci .
