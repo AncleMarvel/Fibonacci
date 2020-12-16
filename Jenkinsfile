@@ -1,9 +1,4 @@
 pipeline {
-	//environment { 
-	//	registry = "anclemarvel/fibonacci" 
-	//	registryCredential = 'dockhub' 
-	//	dockerImage = 'fibonacci' 
-	//}
 	agent none
 	options {timestamps()}
 	
